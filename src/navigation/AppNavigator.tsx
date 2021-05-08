@@ -7,7 +7,7 @@ const Stack = createStackNavigator();
 export const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName={ScreenNames.HOME}>
+      <Stack.Navigator headerMode="none" initialRouteName={ScreenNames.SPLASH}>
         {map(Screens, item => (
           <Stack.Screen
             key={item.screen}
