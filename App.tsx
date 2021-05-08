@@ -12,9 +12,7 @@ const App = () => {
   return (
     <Provider store={appStore}>
       <PersistGate persistor={appPersistor}>
-        <SafeAreaView style={{flex: 1, backgroundColor: '#1a1a1a'}}>
-          <AppNavigator />
-        </SafeAreaView>
+        <AppNavigator />
       </PersistGate>
     </Provider>
   );
