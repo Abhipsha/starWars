@@ -7,10 +7,6 @@ interface PersonCardProps {
   gender: string;
   skinColor: string;
   hairColor: string;
-  height: number;
-  mass: number;
-  eyeColor: string;
-  birth: string;
   onPress?: () => void;
 }
 
@@ -18,11 +14,7 @@ export const PersonCard = ({
   name,
   gender,
   skinColor,
-  eyeColor,
   hairColor,
-  height,
-  mass,
-  birth,
   onPress,
 }: PersonCardProps) => {
   return (
@@ -33,27 +25,18 @@ export const PersonCard = ({
         <Text style={Styles.propertyLabel}>{skinColor.toUpperCase()}</Text>
         <Text style={Styles.propertyLabel}>{hairColor.toUpperCase()}</Text>
       </View>
-      <View style={Styles.propertyView}>
-        <Text style={Styles.propertyLabel}>HEIGHT: {height}</Text>
-        <Text style={Styles.propertyLabel}>MASS: {mass}</Text>
-      </View>
-      <View style={Styles.propertyView}>
-        <Text style={Styles.propertyLabel}>
-          EYE COLOR: {eyeColor.toUpperCase()}
-        </Text>
-        <Text style={Styles.propertyLabel}>BIRTH: {birth.toUpperCase()}</Text>
-      </View>
     </TouchableOpacity>
   );
 };
 
-export const Styles = StyleSheet.create({
+const Styles = StyleSheet.create({
   cardView: {
     backgroundColor: '#6060604D',
     paddingVertical: 15,
     paddingHorizontal: 25,
     borderRadius: 20,
     marginVertical: 10,
+    width: '100%',
   },
   propertyView: {
     flexDirection: 'row',

@@ -1,4 +1,5 @@
 import {all} from 'redux-saga/effects';
-export default function* root() {
-  return yield all({});
+import {charactersSaga} from './charactersSaga';
+export default function* root(): any {
+  return yield all([charactersSaga()]);
 }

@@ -1,8 +1,9 @@
-import {Splash, Home} from '../containers';
+import {Splash, Home, Details} from '../containers';
 import {ComponentType} from 'react';
 export enum ScreenNames {
   SPLASH = 'Splash',
   HOME = 'Home',
+  DETAILS = 'Details',
 }
 export const Screens: {
   screen: ScreenNames;
@@ -15,5 +16,9 @@ export const Screens: {
   {
     screen: ScreenNames.HOME,
     component: Home,
+  },
+  {
+    screen: ScreenNames.DETAILS,
+    component: Details,
   },
 ];

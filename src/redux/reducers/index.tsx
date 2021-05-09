@@ -1,15 +1,15 @@
 import {combineReducers} from 'redux';
 import configureStore from './createStore';
 import CharacterListActions, {
-  characterListReducer,
+  charactersReducer,
   CharacterTypes,
   Charaters,
-} from './characterListReducer';
+} from './charactersReducer';
 import rootSaga from '../saga/index';
 
 export default () => {
   const appReducer = combineReducers({
-    character: characterListReducer,
+    character: charactersReducer,
   });
   const rootReducer = (state: any, action: any) => {
     return appReducer(state, action);

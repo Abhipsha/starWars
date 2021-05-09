@@ -3,13 +3,16 @@ import React from 'react';
 import {useEffect} from 'react';
 import {useState} from 'react';
 import {Animated, SafeAreaView} from 'react-native';
+import {useDispatch} from 'react-redux';
 import {Images} from '../../assets';
 import {ScreenNames} from '../../navigation/constants';
 export const Splash = () => {
   const [logoScaleX] = useState(new Animated.Value(0));
   const [logoScaleY] = useState(new Animated.Value(0));
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   useEffect(() => {
+    dispatch({type: 'GET_CHARACTER_LIST'});
     Animated.parallel([
       Animated.timing(logoScaleX, {
         toValue: 1,
