@@ -13,6 +13,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		B7BD7E1B0204CABBA8E560E4 /* libPods-starWars.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E9D8B8AB0F725CD7ABACBBF /* libPods-starWars.a */; };
+		CA2A6AD619CE4330BB7DE6A2 /* moonhouse.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4B8841AACB54BAFAFADB812 /* moonhouse.ttf */; };
 		CB2D47BC06A6E8D369FF859D /* libPods-starWars-starWarsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB67957D466D6220AADFE9CF /* libPods-starWars-starWarsTests.a */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = starWars/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E9D8B8AB0F725CD7ABACBBF /* libPods-starWars.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-starWars.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB67957D466D6220AADFE9CF /* libPods-starWars-starWarsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-starWars-starWarsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4B8841AACB54BAFAFADB812 /* moonhouse.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = moonhouse.ttf; path = ../src/assets/fonts/moonhouse.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FC7D623DBC8AF53AEE37C6C8 /* Pods-starWars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-starWars.debug.xcconfig"; path = "Target Support Files/Pods-starWars/Pods-starWars.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +98,14 @@
 			name = starWars;
 			sourceTree = "<group>";
 		};
+		1CD12DFC0EF54305A6C123C0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E4B8841AACB54BAFAFADB812 /* moonhouse.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +132,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				B139324AD83AA8805D35B3AB /* Pods */,
+				1CD12DFC0EF54305A6C123C0 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -145,7 +156,6 @@
 				36537B97625A2E0FA2E2F5E8 /* Pods-starWars-starWarsTests.debug.xcconfig */,
 				38DCDA4E9DE95814D3D5CFC4 /* Pods-starWars-starWarsTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -245,6 +255,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				CA2A6AD619CE4330BB7DE6A2 /* moonhouse.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
