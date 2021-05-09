@@ -1,5 +1,5 @@
 import {map} from 'lodash';
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   ImageBackground,
@@ -7,18 +7,32 @@ import {
   Image,
   StyleSheet,
   Text,
+  TouchableOpacity,
   ScrollView,
+  Animated,
 } from 'react-native';
 import {useSelector} from 'react-redux';
+import Ionicon from 'react-native-vector-icons/Ionicons';
 import {fontFamily, Images} from '../../assets';
 import {StateType} from '../../redux/reducers';
+import {useNavigation} from '@react-navigation/native';
+import {useEffect} from 'react';
 
 interface DetailsProps {}
 
 export const Details = () => {
+  const navigation = useNavigation();
   const characterDetails = useSelector(
     (state: StateType) => state.character.characterDetail,
   );
+  const [detailScale] = useState(new Animated.Value(0));
+  useEffect(() => {
+    Animated.timing(detailScale, {
+      toValue: characterDetails !== undefined ? 1 : 0,
+      duration: 800,
+      useNativeDriver: true,
+    }).start();
+  }, [characterDetails]);
   return (
     <View style={Styles.container}>
       <ImageBackground source={Images.bg2} style={{flex: 1}} resizeMode="cover">
@@ -27,17 +41,32 @@ export const Details = () => {
           <View
             style={{
               flex: 1,
-              justifyContent: 'center',
+              flexDirection: 'row',
+              alignItems: 'center',
             }}>
-            <Image
-              source={Images.logo}
-              style={{width: 100, height: 48}}
-              resizeMode="contain"
-            />
+            <TouchableOpacity
+              onPress={() => {
+                navigation.goBack();
+              }}
+              style={{flex: 3, padding: 25}}>
+              <Ionicon
+                name="caret-back"
+                style={{color: '#FFF', fontSize: 32}}
+              />
+            </TouchableOpacity>
+            <View style={{flex: 7}}>
+              <Image
+                source={Images.logo}
+                style={{width: 100, height: 48}}
+                resizeMode="contain"
+              />
+            </View>
           </View>
+
           <View style={{flex: 8, width: '90%', justifyContent: 'flex-start'}}>
             {characterDetails && (
-              <ScrollView style={Styles.cardView}>
+              <Animated.ScrollView
+                style={[Styles.cardView, {transform: [{scaleY: detailScale}]}]}>
                 <Text style={Styles.titleLabel}>
                   {characterDetails.name.toUpperCase()}
                 </Text>
@@ -84,7 +113,7 @@ export const Details = () => {
                     </Text>
                     <View>
                       {map(characterDetails.species, item => (
-                        <Text style={Styles.propertyLabel}>
+                        <Text key={item} style={Styles.propertyLabel}>
                           {item.toUpperCase()}
                         </Text>
                       ))}
@@ -98,7 +127,7 @@ export const Details = () => {
                     </Text>
                     <View>
                       {map(characterDetails.films, item => (
-                        <Text style={Styles.propertyLabel}>
+                        <Text key={item} style={Styles.propertyLabel}>
                           {item.toUpperCase()}
                         </Text>
                       ))}
@@ -112,7 +141,7 @@ export const Details = () => {
                     </Text>
                     <View>
                       {map(characterDetails.vehicles, item => (
-                        <Text style={Styles.propertyLabel}>
+                        <Text key={item} style={Styles.propertyLabel}>
                           {item.toUpperCase()}
                         </Text>
                       ))}
@@ -126,14 +155,14 @@ export const Details = () => {
                     </Text>
                     <View>
                       {map(characterDetails.starships, item => (
-                        <Text style={Styles.propertyLabel}>
+                        <Text key={item} style={Styles.propertyLabel}>
                           {item.toUpperCase()}
                         </Text>
                       ))}
                     </View>
                   </View>
                 )}
-              </ScrollView>
+              </Animated.ScrollView>
             )}
           </View>
         </SafeAreaView>
