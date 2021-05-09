@@ -149,7 +149,19 @@ export const Home = () => {
               onPress={() => setShowFilterModal(false)}
             />
             <View pointerEvents="box-none" style={Styles.filterContainer}>
-              <Text style={Styles.filterTitle}>FILTER</Text>
+              <View style={{flexDirection: 'row'}}>
+                <Text style={Styles.filterTitle}>FILTER</Text>
+                <Ionicons
+                  name="trash"
+                  style={{fontSize: 24, color: '#FFF'}}
+                  onPress={() => {
+                    setActiveGenderFilters([]);
+                    setActiveHairColorFilters([]);
+                    setActiveSkinColorFilters([]);
+                    setShowFilterModal(false);
+                  }}
+                />
+              </View>
               <Text style={Styles.filterLabel}>GENDER</Text>
               <View style={{flexDirection: 'row'}}>
                 <TouchableOpacity
@@ -286,9 +298,11 @@ const Styles = StyleSheet.create({
     justifyContent: 'center',
   },
   filterTitle: {
+    flex: 8,
     textAlign: 'center',
     color: '#FFF',
     fontSize: 24,
+    marginLeft: 20,
     fontFamily: fontFamily.MOONHOUSE,
   },
   filterbackdrop: {
